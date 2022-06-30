@@ -16,7 +16,7 @@ class Members extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('users_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

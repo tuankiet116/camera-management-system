@@ -14,7 +14,10 @@ return [
     */
 
     'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'email' => 'Email',
+    'password' => 'Password',
+    'email_require' => ':attribute is required and valid, check your email again',
+    'password_require' => ':attribute is required, size could not be under 8 charecters',
+    'login_failed' => 'Login Failed',
 ];

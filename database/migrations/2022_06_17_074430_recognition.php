@@ -15,11 +15,11 @@ class Recognition extends Migration
     {
         Schema::create('recognition', function (Blueprint $table) {
             $table->id();
-            $table->integer('cameras_id');
+            $table->integer('camera_id');
             $table->string('video_src');
             $table->integer('type');
             $table->string('status');
-            $table->integer('members_id')->nullable();
+            $table->integer('member_id')->nullable();
             $table->timestamps();
         });
     }

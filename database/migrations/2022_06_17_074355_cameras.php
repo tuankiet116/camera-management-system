@@ -15,8 +15,9 @@ class Cameras extends Migration
     {
         Schema::create('cameras', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->ipAddress('ip');
-            $table->integer('users_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

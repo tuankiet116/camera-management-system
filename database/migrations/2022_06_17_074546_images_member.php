@@ -16,7 +16,7 @@ class ImagesMember extends Migration
         Schema::create('images_member', function (Blueprint $table) {
             $table->id();
             $table->string('image_src');
-            $table->integer('members_id');
+            $table->integer('member_id');
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary">
     <div class="sidebar">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('camera.list') }}" class="nav-link @if(Route::is('camera.list')) active @endif">
+                    <a href="{{ route('camera.list') }}" class="nav-link">
                         <i class="fa-solid fa-gear"></i>
                         <p>
                             {{ __('user.setting.title') }}
@@ -38,3 +38,8 @@
         </nav>
     </div>
 </aside>
+<style>
+    .main-sidebar {
+        position: fixed !important;
+    }
+</style>

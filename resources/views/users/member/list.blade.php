@@ -3,9 +3,9 @@
 <div class="content-wrapper p-5">
 
     <div class="row">
-        <button class="btn btn-primary col-2 mb-5">
+        <a href="{{ route('member.add') }}" class="btn btn-primary col-2 mb-5">
             {{ __('user.member.add') }}
-        </button>
+        </a>
     </div>
     <div class="row">
         <table class="table table-bordered table-striped">

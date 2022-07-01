@@ -19,6 +19,12 @@ return [
             'delete_btn' => 'Delete profile',
             'add_btn' => 'Add member',
             'no_data' => 'No Data Available'
+        ],
+        'add_member' => [
+            'label_name' => 'Name',
+            'label_image_front' => 'Image front face',
+            'label_image_left' => 'Image face left-side',
+            'label_image_right' => 'Image face right-side'
         ]
     ],
     'setting' => [

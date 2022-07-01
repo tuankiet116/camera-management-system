@@ -18,4 +18,8 @@ class MemberController extends Controller
         $members = $this->memberService->getMembers();
         return view('users.member.list', compact('members'));
     }
+
+    public function add() {
+        return view('users.member.add');
+    }
 }

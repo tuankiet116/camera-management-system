@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function() {
 
     Route::prefix('member')->name('member.')->group(function() {
         Route::get('list', [MemberController::class, 'list'])->name('list');
+        Route::get('add', [MemberController::class, 'add'])->name('add');
     });
 });
 

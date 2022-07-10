@@ -233,4 +233,5 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
     ],
 
+    'api_detect' => env('API_DETECT', false),
 ];

@@ -24,7 +24,8 @@ return [
             'label_name' => 'Name',
             'label_image_front' => 'Image front face',
             'label_image_left' => 'Image face left-side',
-            'label_image_right' => 'Image face right-side'
+            'label_image_right' => 'Image face right-side',
+            'notice_error' => 'Notice: Your images could not be detected. Remember just has only you in the center of image, brightness is important and image need to be clear.'
         ]
     ],
     'setting' => [

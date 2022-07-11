@@ -3,7 +3,9 @@
 namespace App\Http\Services\Inf;
 
 use CURLFile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class DetectFaceService
 {
@@ -30,7 +32,7 @@ class DetectFaceService
         }
 
         foreach ($resps as $res) {
-            if ($res->success== false) {
+            if ($res->success == false) {
                 Log::error('Face Detection Error', $resps);
                 throw new \Exception('Face Detection Error');
             }
@@ -42,7 +44,37 @@ class DetectFaceService
         return $resps;
     }
 
-    public function cropImage() {
-        
+    public function cropImage($images, $sizes, $specify_name = null)
+    {
+        $filenames = [];
+        $specify_name = $specify_name ?? strtotime(now());
+        try {
+            $filenames = array_map(function ($image, $size, $key) use ($specify_name) {
+                $rectangle = $this->makeRectangle($size);
+                $filename = Auth::id() . '_' . $specify_name . '_' . $key . '.png';
+                $image->storeAs('member', $filename);
+                if ($image->getClientMimeType() == 'image/png') {
+                    $imageGD = imagecreatefrompng(Storage::path('member/' . $filename));    
+                } else {
+                    $imageGD = imagecreatefromjpeg(Storage::path('member/' . $filename));
+                }
+                $imageCrop = imagecrop($imageGD, $rectangle);
+                imagepng($imageCrop, Storage::path('member/' . $filename));
+                return $filename;
+            }, $images, $sizes, array_keys($images));
+        } catch (\Exception $e) {
+            dd($e);
+            Log::error('Error while croping image', array('e' => $e));
+        }
+        return $filenames;
+    }
+
+    private function makeRectangle($size) {
+        return array(
+            'x' => $size[0],
+            'y' => $size[1],
+            'width' => $size[2] - $size[0],
+            'height' => $size[3] - $size[1]
+        );
     }
 }

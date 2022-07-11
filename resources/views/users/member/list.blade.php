@@ -26,7 +26,7 @@
                             {{ $member->name }}
                         </td>
                         <td class="d-flex justify-content-center">
-                            <a class="btn btn-warning btn-sm mr-2">
+                            <a href="{{ route('member.edit', ['id' => $member->id]) }}" class="btn btn-warning btn-sm mr-2">
                                 {{ __('user.member.table_list.edit_btn') }}
                             </a>
                             <a class="btn btn-danger btn-sm ml-2">

@@ -28,6 +28,9 @@ Route::middleware('auth')->group(function() {
         Route::get('list', [MemberController::class, 'list'])->name('list');
         Route::get('add', [MemberController::class, 'add'])->name('add');
         Route::post('add', [MemberController::class, 'store'])->name('store');
+        Route::get('update/{id}', [MemberController::class, 'edit'])->name('edit');
+        Route::post('update/{id}', [MemberController::class, 'update'])->name('update');
+        Route::get('image/{memberId}/{fileName}', [MemberController::class, 'image'])->name('image');
     });
 });
 

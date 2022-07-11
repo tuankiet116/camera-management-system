@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class ImageMember extends Model
 {
     use HasFactory;
-
+    protected $table = 'images_member';
     protected $fillable = [
-        'name',
-        'user_id'
+        'image_src',
+        'member_id'
     ];
-
-    public function getImages() {
-        return $this->hasMany(ImageMember::class);
-    }
 }

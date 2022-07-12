@@ -75,6 +75,23 @@ class MemberService
         }
     }
 
+    public function deleteMember($id)
+    {
+        try {
+            $member = Member::find($id);
+            $member->delete();
+            $memberImages = ImageMember::where('member_id', $id)->get();
+            foreach($memberImages as $image) {
+                Storage::delete('member/' . $image->image_src);
+                $image->delete();
+            }
+            return true;
+        } catch (\Exception $e) {
+            Log::error('Error while deleting member', array('e' => $e));
+            return false;
+        }
+    }
+
     public function getImage($filename)
     {
         try {

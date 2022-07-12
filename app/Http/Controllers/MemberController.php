@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use App\Http\Services\MemberService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
@@ -61,7 +60,11 @@ class MemberController extends Controller
 
     public function delete(int $id)
     {
-        
+        $result = $this->memberService->deleteMember($id);
+        if ($result === true) {
+            return redirect()->back()->with('success', 'Deleted');
+        }
+        return redirect()->back()->withErrors('error', false);
     }
 
     public function image(int $memberId, $fileName)

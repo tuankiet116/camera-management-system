@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function() {
         Route::post('add', [MemberController::class, 'store'])->name('store');
         Route::get('update/{id}', [MemberController::class, 'edit'])->name('edit');
         Route::post('update/{id}', [MemberController::class, 'update'])->name('update');
+        Route::post('delete/{id}', [MemberController::class, 'delete'])->name('delete');
         Route::get('image/{memberId}/{fileName}', [MemberController::class, 'image'])->name('image');
     });
 });
